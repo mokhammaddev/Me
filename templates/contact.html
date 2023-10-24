@@ -136,161 +136,121 @@
 {#</body>#}
 {#</html>#}
 {##}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from colorlib.com/etc/cf/ContactFrom_v10/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 04:46:54 GMT -->
 <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <title>Contact</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
 
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Vendor CSS Files -->
+    <link href="/static/about/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/about/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/about/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/static/about/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="../static/contact/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="/static/about/assets/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/animate/animate.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/css-hamburgers/hamburgers.min.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/animsition/css/animsition.min.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/select2/select2.min.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/daterangepicker/daterangepicker.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/contact/css/util.css">
-    <link rel="stylesheet" type="text/css" href="../static/contact/css/main.css">
-
-    <meta name="robots" content="noindex, follow">
-    <script nonce="a1a06637-822d-4312-a807-96dcdfe4694e">(function (w, d) {
-        !function (j, k, l, m) {
-            j[l] = j[l] || {};
-            j[l].executed = [];
-            j.zaraz = {deferred: [], listeners: []};
-            j.zaraz.q = [];
-            j.zaraz._f = function (n) {
-                return async function () {
-                    var o = Array.prototype.slice.call(arguments);
-                    j.zaraz.q.push({m: n, a: o})
-                }
-            };
-            for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
-            j.zaraz.init = () => {
-                var q = k.getElementsByTagName(m)[0], r = k.createElement(m), s = k.getElementsByTagName("title")[0];
-                s && (j[l].t = k.getElementsByTagName("title")[0].text);
-                j[l].x = Math.random();
-                j[l].w = j.screen.width;
-                j[l].h = j.screen.height;
-                j[l].j = j.innerHeight;
-                j[l].e = j.innerWidth;
-                j[l].l = j.location.href;
-                j[l].r = k.referrer;
-                j[l].k = j.screen.colorDepth;
-                j[l].n = k.characterSet;
-                j[l].o = (new Date).getTimezoneOffset();
-                if (j.dataLayer) for (const w of Object.entries(Object.entries(dataLayer).reduce(((x, y) => ({...x[1], ...y[1]})), {}))) zaraz.set(w[0], w[1], {scope: "page"});
-                j[l].q = [];
-                for (; j.zaraz.q.length;) {
-                    const z = j.zaraz.q.shift();
-                    j[l].q.push(z)
-                }
-                r.defer = !0;
-                for (const A of [localStorage, sessionStorage]) Object.keys(A || {}).filter((C => C.startsWith("_zaraz_"))).forEach((B => {
-                    try {
-                        j[l]["z_" + B.slice(7)] = JSON.parse(A.getItem(B))
-                    } catch {
-                        j[l]["z_" + B.slice(7)] = A.getItem(B)
-                    }
-                }));
-                r.referrerPolicy = "origin";
-                r.src = "../../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
-                q.parentNode.insertBefore(r, q)
-            };
-            ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
-        }(w, d, "zarazData", "script");
-    })(window, document);</script>
 </head>
 <body>
-<div class="container-contact100">
-    <div class="wrap-contact100">
-        <form class="contact100-form validate-form" method="post" action="/">
-            {% csrf_token %}
-            <span class="contact100-form-title">
-Contact
-</span>
-            <div class="wrap-input100 validate-input" data-validate="Please enter your name">
-                {{ form.name }}
-                <span class="focus-input100"></span>
+<main id="main">
+    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route"
+             style="background-image: url(static/about/assets/img/overlay-bg.jpg)">
+        <div class="overlay-mf"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="contact-mf">
+                        <div id="contact" class="box-shadow-full">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="title-box-2">
+                                        <h5 class="title-left">
+                                            Send Message Us
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        {% csrf_token %}
+                                        <form action="forms/contact.php" method="post" role="form"
+                                              class="php-email-form">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        {{ form.name }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        {{ form.avatar }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        {{ form.email }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        {{ form.phone_number }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        {{ form.message }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 text-center my-3">
+                                                    <div class="loading">Loading</div>
+                                                    <div class="error-message"></div>
+                                                    <div class="sent-message">Your message has been sent. Thank you!
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 text-center">
+                                                    <button type="submit"
+                                                            class="button button-a button-big button-rouded">Send
+                                                        Message
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="title-box-2 pt-4 pt-md-0">
+                                        <h5 class="title-left">
+                                            Get in Touch
+                                        </h5>
+                                    </div>
+                                    <div class="more-info">
+                                        <p class="lead">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum
+                                            dolorem soluta quidem
+                                            expedita aperiam aliquid at.
+                                            Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
+                                            mollitia inventore?
+                                        </p>
+                                        <ul class="list-ico">
+                                            <li><span class="bi bi-geo-alt"></span>Sirdaryo Viloyati Xovos Tumani
+                                            </li>
+                                            <li><span class="bi bi-phone"></span> +998 77 000 17 32</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
-                {{ form.email }}
-                <span class="focus-input100"></span>
-            </div>
-            <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
-                {{ form.phone_number }}
-                <span class="focus-input100"></span>
-            </div>
-            <div class="wrap-input100 validate-input" data-validate="Please enter your message">
-                {{ form.message }}
-                <span class="focus-input100"></span>
-            </div>
-             <div class="wrap-input100 validate-input" data-validate="Please enter your image">
-                 <h4>Image</h4>
-                {{ form.avatar }}
-                <span class="focus-input100"></span>
-            </div>
-            <div class="container-contact100-form-btn">
-                <button type="submit" class="contact100-form-btn">
-<span>
-<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
-Send
-</span>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-<div id="dropDownSelect1"></div>
+        </div>
+    </section>
+</main>
 
-<script src="../static/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
-
-<script src="../static/contact/vendor/animsition/js/animsition.min.js"></script>
-
-<script src="../static/contact/vendor/bootstrap/js/popper.js"></script>
-<script src="../static/contact/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<script src="../static/contact/vendor/select2/select2.min.js"></script>
-
-<script src="../static/contact/vendor/daterangepicker/moment.min.js"></script>
-<script src="../static/contact/vendor/daterangepicker/daterangepicker.js"></script>
-
-<script src="../static/contact/vendor/countdowntime/countdowntime.js"></script>
-
-<script src="../static/contact/js/main.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
-        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
-        data-cf-beacon='{"rayId":"81af94208ade6602","b":1,"version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
-        crossorigin="anonymous"></script>
 </body>
 
-<!-- Mirrored from colorlib.com/etc/cf/ContactFrom_v10/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 04:47:00 GMT -->
 </html>
 

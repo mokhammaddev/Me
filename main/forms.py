@@ -10,31 +10,34 @@ class ContactForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({
-            "class": "input100",
+            "class": "form-control",
+            "id": "name",
             "type": "text",
-            "placeholder": "Full name",
+            "placeholder": "Your Name",
             "name": "name"
         })
         self.fields['avatar'].widget.attrs.update({
-            "class": "input100",
+            "class": "form-control",
             "type": "image",
             "placeholder": "Image",
             "name": "image"
         })
         self.fields['email'].widget.attrs.update({
-            "class": "input100",
+            "class": "form-control",
+            "id": "email",
             "type": "email",
             "name": "email",
-            "placeholder": "E-mail",
+            "placeholder": "Your Email",
         })
         self.fields['phone_number'].widget.attrs.update({
-            "class": "input100",
+            "class": "form-control",
             "type": "number",
             "name": "phone",
-            "placeholder": "Phone",
+            "placeholder": "Phone number",
         })
         self.fields['message'].widget.attrs.update({
-            "class": "input100",
+            "class": "form-control",
             "name": "message",
-            "placeholder": "Your Message",
+            "rows": 5,
+            "placeholder": "Message",
         })
