@@ -16,12 +16,12 @@ def contact(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-        return redirect('main:feedback')
+        return redirect('/')
 
     ctx = {
         'form': form,
     }
-    return render(request, 'contact.html', ctx)
+    return render(request, "contact.html", ctx)
 
 
 def feedback(request):

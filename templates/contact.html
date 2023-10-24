@@ -1,138 +1,291 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <style>
-        html, body {
-            min-height: 100%;
-            padding: 0;
-            margin: 0;
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 14px;
-            color: #666;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            font-weight: 400;
-            color: #1c87c9;
-        }
-
-        p {
-            margin: 0 0 5px;
-        }
-
-        .main-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #1c87c9;
-        }
-
-        form {
-            padding: 25px;
-            margin: 25px;
-            box-shadow: 0 2px 5px #f5f5f5;
-            background: #f5f5f5;
-        }
-
-        .fas {
-            margin: 25px 10px 0;
-            font-size: 72px;
-            color: #fff;
-        }
-
-        .fa-envelope {
-            transform: rotate(-20deg);
-        }
-
-        .fa-at, .fa-mail-bulk {
-            transform: rotate(10deg);
-        }
-
-        input, textarea {
-            width: calc(100% - 18px);
-            padding: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #1c87c9;
-            outline: none;
-        }
-
-        input::placeholder {
-            color: #666;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background: #1c87c9;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-        }
-
-        button:hover {
-            background: #2371a0;
-        }
-
-        @media (min-width: 568px) {
-            .main-block {
-                flex-direction: row;
-            }
-
-            .left-part, form {
-                width: 50%;
-            }
-
-            .fa-envelope {
-                margin-top: 0;
-                margin-left: 20%;
-            }
-
-            .fa-at {
-                margin-top: -10%;
-                margin-left: 65%;
-            }
-
-            .fa-mail-bulk {
-                margin-top: 2%;
-                margin-left: 28%;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="main-block">
-    <div class="left-part">
-        <i class="fas fa-envelope"></i>
-        <i class="fas fa-at"></i>
-        <i class="fas fa-mail-bulk"></i>
-    </div>
-    <form method="post" action="/">
-        {% csrf_token %}
-        <h1>Contact Us</h1>
-        <div class="info">
-            {{ form.name }}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <title>Contact</title>#}
+{#    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"#}
+{#          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">#}
+{#    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">#}
+{#    <style>#}
+{#        html, body {#}
+{#            min-height: 100%;#}
+{#            padding: 0;#}
+{#            margin: 0;#}
+{#            font-family: Roboto, Arial, sans-serif;#}
+{#            font-size: 14px;#}
+{#            color: #666;#}
+{#        }#}
+{##}
+{#        h1 {#}
+{#            margin: 0 0 20px;#}
+{#            font-weight: 400;#}
+{#            color: #1c87c9;#}
+{#        }#}
+{##}
+{#        p {#}
+{#            margin: 0 0 5px;#}
+{#        }#}
+{##}
+{#        .main-block {#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            justify-content: center;#}
+{#            align-items: center;#}
+{#            min-height: 100vh;#}
+{#            background: #1c87c9;#}
+{#        }#}
+{##}
+{#        form {#}
+{#            padding: 25px;#}
+{#            margin: 25px;#}
+{#            box-shadow: 0 2px 5px #f5f5f5;#}
+{#            background: #f5f5f5;#}
+{#        }#}
+{##}
+{#        .fas {#}
+{#            margin: 25px 10px 0;#}
+{#            font-size: 72px;#}
+{#            color: #fff;#}
+{#        }#}
+{##}
+{#        .fa-envelope {#}
+{#            transform: rotate(-20deg);#}
+{#        }#}
+{##}
+{#        .fa-at, .fa-mail-bulk {#}
+{#            transform: rotate(10deg);#}
+{#        }#}
+{##}
+{#        input, textarea {#}
+{#            width: calc(100% - 18px);#}
+{#            padding: 8px;#}
+{#            margin-bottom: 20px;#}
+{#            border: 1px solid #1c87c9;#}
+{#            outline: none;#}
+{#        }#}
+{##}
+{#        input::placeholder {#}
+{#            color: #666;#}
+{#        }#}
+{##}
+{#        button {#}
+{#            width: 100%;#}
+{#            padding: 10px;#}
+{#            border: none;#}
+{#            background: #1c87c9;#}
+{#            font-size: 16px;#}
+{#            font-weight: 400;#}
+{#            color: #fff;#}
+{#        }#}
+{##}
+{#        button:hover {#}
+{#            background: #2371a0;#}
+{#        }#}
+{##}
+{#        @media (min-width: 568px) {#}
+{#            .main-block {#}
+{#                flex-direction: row;#}
+{#            }#}
+{##}
+{#            .left-part, form {#}
+{#                width: 50%;#}
+{#            }#}
+{##}
+{#            .fa-envelope {#}
+{#                margin-top: 0;#}
+{#                margin-left: 20%;#}
+{#            }#}
+{##}
+{#            .fa-at {#}
+{#                margin-top: -10%;#}
+{#                margin-left: 65%;#}
+{#            }#}
+{##}
+{#            .fa-mail-bulk {#}
+{#                margin-top: 2%;#}
+{#                margin-left: 28%;#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#<div class="main-block">#}
+{#    <div class="left-part">#}
+{#        <i class="fas fa-envelope"></i>#}
+{#        <i class="fas fa-at"></i>#}
+{#        <i class="fas fa-mail-bulk"></i>#}
+{#    </div>#}
+{#    <form method="post" action="/">#}
+{#        {% csrf_token %}#}
+{#        <h1>Contact Us</h1>#}
+{#        <div class="info">#}
+{#            {{ form.name }}#}
 {#            <input class="fname" type="text" name="name" placeholder="Full name">#}
-            {{ form.email }}
+{#            {{ form.email }}#}
 {#            <input type="email" name="name" placeholder="Email">#}
-            {{ form.phone_number }}
+{#            {{ form.phone_number }}#}
 {#            <input type="number" name="name" placeholder="Phone number">#}
-        </div>
+{#        </div>#}
 {#        <p>Message</p>#}
-        {{ form.message }}
+{#        {{ form.message }}#}
 {#        <div>#}
 {#            <textarea placeholder="Message" rows="4"></textarea>#}
 {#        </div>#}
-        <input type="submit" href="/">
-    </form>
+{#        <input type="submit" href="/">#}
+{#    </form>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+{##}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from colorlib.com/etc/cf/ContactFrom_v10/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 04:46:54 GMT -->
+<head>
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <meta name="robots" content="noindex, follow">
+    <script nonce="a1a06637-822d-4312-a807-96dcdfe4694e">(function (w, d) {
+        !function (j, k, l, m) {
+            j[l] = j[l] || {};
+            j[l].executed = [];
+            j.zaraz = {deferred: [], listeners: []};
+            j.zaraz.q = [];
+            j.zaraz._f = function (n) {
+                return async function () {
+                    var o = Array.prototype.slice.call(arguments);
+                    j.zaraz.q.push({m: n, a: o})
+                }
+            };
+            for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
+            j.zaraz.init = () => {
+                var q = k.getElementsByTagName(m)[0], r = k.createElement(m), s = k.getElementsByTagName("title")[0];
+                s && (j[l].t = k.getElementsByTagName("title")[0].text);
+                j[l].x = Math.random();
+                j[l].w = j.screen.width;
+                j[l].h = j.screen.height;
+                j[l].j = j.innerHeight;
+                j[l].e = j.innerWidth;
+                j[l].l = j.location.href;
+                j[l].r = k.referrer;
+                j[l].k = j.screen.colorDepth;
+                j[l].n = k.characterSet;
+                j[l].o = (new Date).getTimezoneOffset();
+                if (j.dataLayer) for (const w of Object.entries(Object.entries(dataLayer).reduce(((x, y) => ({...x[1], ...y[1]})), {}))) zaraz.set(w[0], w[1], {scope: "page"});
+                j[l].q = [];
+                for (; j.zaraz.q.length;) {
+                    const z = j.zaraz.q.shift();
+                    j[l].q.push(z)
+                }
+                r.defer = !0;
+                for (const A of [localStorage, sessionStorage]) Object.keys(A || {}).filter((C => C.startsWith("_zaraz_"))).forEach((B => {
+                    try {
+                        j[l]["z_" + B.slice(7)] = JSON.parse(A.getItem(B))
+                    } catch {
+                        j[l]["z_" + B.slice(7)] = A.getItem(B)
+                    }
+                }));
+                r.referrerPolicy = "origin";
+                r.src = "../../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
+                q.parentNode.insertBefore(r, q)
+            };
+            ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
+        }(w, d, "zarazData", "script");
+    })(window, document);</script>
+</head>
+<body>
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form" method="post">
+            {% csrf_token %}
+<span class="contact100-form-title">
+Contact
+</span>
+            <div class="wrap-input100 validate-input" data-validate="Please enter your name">
+                {{ form.name }}
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
+                {{ form.email }}
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
+                {{ form.phone_number}}
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                {{ form.message }}
+                <span class="focus-input100"></span>
+            </div>
+            <div class="container-contact100-form-btn">
+                <button type="submit" class="contact100-form-btn">
+<span>
+<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+Send
+</span>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
+<div id="dropDownSelect1"></div>
+
+<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+
+<script src="../static/vendor/bootstrap/js/popper.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../static/vendor/select2/select2.min.js"></script>
+
+<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+
+<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+
+<script src="../static/js/main.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"81af94208ade6602","b":1,"version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
 </body>
+
+<!-- Mirrored from colorlib.com/etc/cf/ContactFrom_v10/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 04:47:00 GMT -->
 </html>
 
