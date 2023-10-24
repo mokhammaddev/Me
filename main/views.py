@@ -25,4 +25,8 @@ def contact(request):
 
 
 def feedback(request):
-    return render(request, 'feedback.html')
+    feedbacks = Contact.objects.order_by('-id')
+    ctx = {
+        'feedbacks': feedbacks
+    }
+    return render(request, 'feedback.html', ctx)

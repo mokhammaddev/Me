@@ -149,22 +149,22 @@
 
     <link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/bootstrap/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/animate/animate.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/css-hamburgers/hamburgers.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/animsition/css/animsition.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/select2/select2.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/vendor/daterangepicker/daterangepicker.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/css/util.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../static/contact/css/main.css">
 
     <meta name="robots" content="noindex, follow">
     <script nonce="a1a06637-822d-4312-a807-96dcdfe4694e">(function (w, d) {
@@ -218,9 +218,9 @@
 <body>
 <div class="container-contact100">
     <div class="wrap-contact100">
-        <form class="contact100-form validate-form" method="post">
+        <form class="contact100-form validate-form" method="post" action="/">
             {% csrf_token %}
-<span class="contact100-form-title">
+            <span class="contact100-form-title">
 Contact
 </span>
             <div class="wrap-input100 validate-input" data-validate="Please enter your name">
@@ -232,11 +232,16 @@ Contact
                 <span class="focus-input100"></span>
             </div>
             <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
-                {{ form.phone_number}}
+                {{ form.phone_number }}
                 <span class="focus-input100"></span>
             </div>
             <div class="wrap-input100 validate-input" data-validate="Please enter your message">
                 {{ form.message }}
+                <span class="focus-input100"></span>
+            </div>
+             <div class="wrap-input100 validate-input" data-validate="Please enter your image">
+                 <h4>Image</h4>
+                {{ form.avatar }}
                 <span class="focus-input100"></span>
             </div>
             <div class="container-contact100-form-btn">
@@ -252,21 +257,21 @@ Send
 </div>
 <div id="dropDownSelect1"></div>
 
-<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="../static/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
 
-<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<script src="../static/contact/vendor/animsition/js/animsition.min.js"></script>
 
-<script src="../static/vendor/bootstrap/js/popper.js"></script>
-<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/contact/vendor/bootstrap/js/popper.js"></script>
+<script src="../static/contact/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="../static/vendor/select2/select2.min.js"></script>
+<script src="../static/contact/vendor/select2/select2.min.js"></script>
 
-<script src="../static/vendor/daterangepicker/moment.min.js"></script>
-<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="../static/contact/vendor/daterangepicker/moment.min.js"></script>
+<script src="../static/contact/vendor/daterangepicker/daterangepicker.js"></script>
 
-<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<script src="../static/contact/vendor/countdowntime/countdowntime.js"></script>
 
-<script src="../static/js/main.js"></script>
+<script src="../static/contact/js/main.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>

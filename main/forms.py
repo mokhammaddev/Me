@@ -15,6 +15,12 @@ class ContactForm(forms.ModelForm):
             "placeholder": "Full name",
             "name": "name"
         })
+        self.fields['avatar'].widget.attrs.update({
+            "class": "input100",
+            "type": "image",
+            "placeholder": "Image",
+            "name": "image"
+        })
         self.fields['email'].widget.attrs.update({
             "class": "input100",
             "type": "email",
