@@ -13,11 +13,16 @@ def about(request):
 
 def contact(request):
     form = ContactForm()
-    if request.method == 'POST':
+    if request.method == "POST":
+        form = ContactForm(data=request.POST) or ContactForm(data=request.FILES)
         if form.is_valid():
+            # name = form.cleaned_data['name']
+            # avatar = form.cleaned_data['avatar']
+            # email = form.cleaned_data['email']
+            # phone_number = form.cleaned_data['phone_number']
+            # message = form.cleaned_data['message']
             form.save()
-        return redirect('/')
-
+            return redirect('/')
     ctx = {
         'form': form,
     }
