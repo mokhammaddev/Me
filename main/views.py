@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Contact
+from .models import Contact, Book
 from .forms import ContactForm
 
 
@@ -14,13 +14,8 @@ def about(request):
 def contact(request):
     form = ContactForm()
     if request.method == "POST":
-        form = ContactForm(data=request.POST) or ContactForm(data=request.FILES)
+        form = ContactForm(data=request.POST)
         if form.is_valid():
-            # name = form.cleaned_data['name']
-            # avatar = form.cleaned_data['avatar']
-            # email = form.cleaned_data['email']
-            # phone_number = form.cleaned_data['phone_number']
-            # message = form.cleaned_data['message']
             form.save()
             return redirect('/')
     ctx = {
@@ -35,3 +30,15 @@ def feedback(request):
         'feedbacks': feedbacks
     }
     return render(request, 'feedback.html', ctx)
+
+
+def book(request):
+    books = Book.objects.order_by('-id')
+    ctx = {
+        'books': books,
+    }
+    return render(request, 'book.html', ctx)
+
+
+def book_detail(request, pk):
+    return render(request, 'book_detail.html')
