@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contact, Book
 from .forms import ContactForm
 
@@ -41,4 +41,8 @@ def book(request):
 
 
 def book_detail(request, pk):
+    books = get_object_or_404(Book, id=pk)
+    ctx = {
+        'book': books
+    }
     return render(request, 'book_detail.html')
