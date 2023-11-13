@@ -27,6 +27,12 @@ class ContactForm(forms.ModelForm):
             "name": "subject",
             "id": "subject",
         })
+        self.fields['subject'].widget.attrs.update({
+            "class": "form-control",
+            "type": "text",
+            "name": "subject",
+            "id": "subject",
+        })
         self.fields['message'].widget.attrs.update({
             "class": "form-control",
             "name": "message",
