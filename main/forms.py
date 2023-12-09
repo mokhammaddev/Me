@@ -5,7 +5,8 @@ from django import forms
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ('name', 'email', 'phone_number', 'subject', 'message')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
