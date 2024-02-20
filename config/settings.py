@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_DB')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 1
 
+# ALLOWED_HOSTS = ['3.79.61.151']
 ALLOWED_HOSTS = ['*']
 
 
@@ -131,6 +132,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+# STATIC_URL = '/home/muhammad/Desktop/Projects/Me/static/'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATICFILES_DIRS = [
+#     BASE_DIR / '/home/muhammad/Desktop/Projects/Me/static'
+# ]
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
